@@ -47,6 +47,9 @@
         <input class="form-control form-control-lg" type="text" name="username_1" placeholder="UserName... " class="form-group"/>
         </div>
 
+        <div class="form-group"> 
+        <input type="email" name="email" placeholder="Email.." class="form-control form-control-lg"/>
+        </div>
 
         <div class="form-group"> 
         <input type="password" name="password_1" placeholder="PassWord... " class="form-control form-control-lg"/>
@@ -56,8 +59,20 @@
         <div class="form-group"> 
         <input type="password" name="confirm_pass_1" placeholder="Confirm PassWord..." class="form-control form-control-lg"/>
         </div>
+
+       
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control form-control-lg" name="phoneNumber" placeholder="Phone # ">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control form-control-lg"  name="age" placeholder="Age">
+    </div>
+  </div>
+
+
           <div class="d-flex justify-content-between">
-          <button class="btn btn-outline-dark  "  name="submit" type="submit" >Submit</button>
+          <button class="btn btn-outline-dark mt-3  "  name="submit" type="submit" >Submit</button>
          
 
           </div>

@@ -68,7 +68,7 @@ $pageName = 'Home Page';
                 <span class='badge bg-primary'>$cartItemsCount </span>
                 </a>
               </li>";
-              echo "<li class='nav-item'><a class='nav-link' href='index.php'> <i class='fas fa-home'></i> Requests</a></li>";
+              echo "<li class='nav-item'><a class='nav-link' href='user_requests.php'> <i class='fas fa-home'></i> Requests</a></li>";
               echo "<li class='nav-item dropdown'>
               <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
               Categories
@@ -124,9 +124,9 @@ $pageName = 'Home Page';
                             1.4; ?>$</del> <b><?php echo $row['price']; ?>$</b>
                         </p>
                         <h1 > <?php echo $row['status']." ";
-                        if(isset($_SESSION['name'])){
-                          echo $_SESSION['name'];
-                        }
+                        // if(isset($_SESSION['name'])){
+                        //   echo $_SESSION['name'];
+                        // }
                                     ?></h1>
                        
 

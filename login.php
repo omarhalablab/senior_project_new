@@ -123,7 +123,8 @@ else if ($_GET["error"]=="sqlerror")
               });
         </script>";
         echo "<p class='font-weight-bold text-capitalize text-center'>User Not Found, Try Again Or Sign Up</p>";
-        }else if($_GET["error"] =="no_error_signup_success"){
+        }
+        else if($_GET["error"] =="no_error_signup_success"){
           echo "<script type='text/javascript'>
           swal({
                  title: 'WOHOO!!',

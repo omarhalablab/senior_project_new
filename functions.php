@@ -11,10 +11,10 @@
     return $result;
 }
 
-function emptyInput_sginUp ($name,$pass,$pass_check){
+function emptyInput_sginUp ($name,$pass,$pass_check,$email,$phoneNumber,$age){
     $result;
 
-    if( $name=="" || $pass=="" || $pass_check=="" ){
+    if( $name=="" || $pass=="" || $pass_check=="" || $email=="" || $phoneNumber=="" || $age=="" ){
         $result=true;
     }
     else { 
@@ -39,7 +39,7 @@ function InvalidUsername($Username){
 
 
 
-function UsernameExists_From_SignIN($con, $Username,$Pass){
+function UsernameExists_From_SignIN($con, $Username,$Pass,$email,$phoneNumber,$age){
     $query= "SELECT * FROM users WHERE  username = ?;";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$query)){
@@ -58,7 +58,7 @@ if($resultCheck > 0){
     exit(); 
 }
 else{
-    $query= "INSERT INTO users (username,password,created_at) VALUES (?,?,CURRENT_TIME);";
+    $query= "INSERT INTO users (username,password,created_at,email,phoneNumber,age) VALUES (?,?,CURRENT_TIME,?,?,?);";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$query)){
         header("location:signup.php?error=sqlerror");
@@ -67,7 +67,7 @@ else{
     else {
 
         $hashed_Pass = password_hash($Pass,PASSWORD_DEFAULT);
-        mysqli_stmt_bind_param($stmt,"ss",$Username,$hashed_Pass);
+        mysqli_stmt_bind_param($stmt,"sssss",$Username,$hashed_Pass,$email,$phoneNumber,$age);
         mysqli_stmt_execute($stmt);
         header("location:login.php?error=no_error_signup_success");
         exit(); 
@@ -75,7 +75,7 @@ else{
 
 }
 mysqli_stmt_close($stmt);
-mysqli_slose();
+mysqli_close($con);
 } 
 
 

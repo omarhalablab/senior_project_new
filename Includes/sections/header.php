@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="index.php"> <i class="fas fa-receipt"></i> Requests</a>
+          <a class="nav-link" href="user_requests.php"> <i class="fas fa-receipt"></i> Requests</a>
         </li>
         <li class="nav-item">
           <a class="nav-link me-0" href="index.php"> <i class="fas fa-sign-out-alt"></i> Logout</a>
