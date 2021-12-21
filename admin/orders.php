@@ -29,26 +29,32 @@ else
 
                 <?php 
                 
-                $query = "select * from orders";
+                $query = "select * from users_before_admin";
                 $result = mysqli_query($con, $query);
 
                 while($row = $result->fetch_assoc())
                 {    
+
+                    $gameId1 = $row['game_id'];
+                    $query2 = "select * from games where id ='$gameId1';";
+                    $result2 = mysqli_query($con, $query2);
+                    $roww = $result2 -> fetch_assoc();
+
                     ?>
                 <tr>
                     <td>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <i class="fas fa-user"></i> Full name:  <?php echo $row['fullname'] ?>
+                                <i class="fas fa-user"></i> Full name:  <?php echo $row['username'] ?>
                             </li>
                             <li class="list-group-item">
-                                <i class="fas fa-map"></i> Address:  <?php echo $row['address'] ?>
+                                <i class="fas fa-map"></i> Email  <?php echo $row['email'] ?>
                             </li>
                             <li class="list-group-item">
-                                <i class="fas fa-at"></i> Email:  <?php echo $row['email'] ?>
+                                <i class="fas fa-at"></i> Phone Number:  <?php echo $row['phoneNumber'] ?>
                             </li>
                             <li class="list-group-item">
-                                <i class="fas fa-phone"></i> Phone Number:  <?php echo $row['phone_number'] ?>
+                                <i class="fas fa-phone"></i> Age:  <?php echo $row['phone_number'] ?>
                             </li>
                         </ul>
                     </td>
