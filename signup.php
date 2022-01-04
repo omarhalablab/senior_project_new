@@ -42,14 +42,39 @@
        <h1 class="font-weight-bold text-capitalize text-center"> sign up </h1>
     <form action="signup-inc.php" method="post">
 
+<?php  if(isset($_GET['username']) ){
+  $username = $_GET['username'];
 
-        <div class="form-group"> 
-        <input class="form-control form-control-lg" type="text" name="username_1" placeholder="UserName... " class="form-group"/>
-        </div>
+echo '  <div class="form-group"> 
+<input class="form-control form-control-lg" type="text" name="username_1" placeholder="UserName... "  value ="'.$username.'"class="form-group"/>
+</div> ';
+} else {
+  echo '<div class="form-group"> 
+  <input class="form-control form-control-lg" type="text" name="username_1" placeholder="UserName... " class="form-group"/>
+  </div>';
+}
 
+if(isset($_GET['email']) ){
+  $email = $_GET['email'];
+
+echo '  <div class="form-group"> 
+<input type="email" name="email" placeholder="Email.." value ="'.$email.'"  class="form-control form-control-lg"/>
+</div> ';
+} else {
+  echo '<div class="form-group"> 
+  <input type="email" name="email" placeholder="Email.." class="form-control form-control-lg"/>
+  </div>';
+}
+
+
+
+
+?>
+        
+<!-- 
         <div class="form-group"> 
         <input type="email" name="email" placeholder="Email.." class="form-control form-control-lg"/>
-        </div>
+        </div> -->
 
         <div class="form-group"> 
         <input type="password" name="password_1" placeholder="PassWord... " class="form-control form-control-lg"/>
@@ -62,12 +87,37 @@
 
        
   <div class="row">
-    <div class="col">
-      <input type="text" class="form-control form-control-lg" name="phoneNumber" placeholder="Phone # ">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control form-control-lg"  name="age" placeholder="Age">
-    </div>
+    <?php
+  if(isset($_GET['phonenumber']) ){
+  $phonenumber = $_GET['phonenumber'];
+
+echo ' <div class="col">
+<input type="text" class="form-control form-control-lg" value="'.$phonenumber.'" name="phoneNumber" placeholder="Phone # ">
+</div>';
+} else {
+  echo '<div class="col">
+  <input type="text" class="form-control form-control-lg" name="phoneNumber" placeholder="Phone # ">
+</div>';
+}
+
+if(isset($_GET['age']) ){
+  $age = $_GET['age'];
+
+echo '<div class="col">
+<input type="text" class="form-control form-control-lg" value="'.$age.'"  name="age" placeholder="Age">
+</div>';
+} else {
+  echo '<div class="col">
+  <input type="text" class="form-control form-control-lg"  name="age" placeholder="Age">
+</div>';
+}
+
+
+
+?>
+
+    
+    
   </div>
 
 
@@ -127,6 +177,19 @@ else if  ($_GET["error"]==" stmt failed"){
     echo "<p> Something Went Wrong! Please Try Again </p>";
 
 }
+
+else if  ($_GET["error"]=="userName taken"){
+  // echo "<p> Something Went Wrong! Please Try Again </p>";
+  echo "<script type='text/javascript'>
+    
+    swal({
+           title: 'User Name Is Taken',
+           text: 'Choose Another Username',
+           icon: 'error'
+       });
+ </script>";
+}
+
 else if  ($_GET["error"]=="none"){
    echo "  <center><p> You Have Signed Up! </p> </center>";
 
@@ -151,8 +214,7 @@ else if  ($_GET["error"]=="none"){
 }else if($_GET["error"] =="no_error_signup_success"){
   echo "<script type='text/javascript'>
   swal({
-         title: 'WOHOO!!',
-         text: 'sign up success',
+         title: 'sign up success!!',
          icon: 'success'
      });
 </script>";

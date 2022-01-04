@@ -13,19 +13,19 @@ if(isset($_POST["submit"])){
  require_once 'functions.php';
 
  if(emptyInput_sginUp($userName_1,$Pass_1,$confirm_Pass_1,$email,$phoneNumber,$age) !== false){
-    header("location:signup.php?error=empty_inputs_SignUP");
+    header("location:signup.php?error=empty_inputs_SignUP&username=$userName_1&email=$email&phonenumber=$phoneNumber&age=$age");
     exit();
 }
 
 
  
     if($Pass_1 != $confirm_Pass_1){
-        header("location:signup.php?error=Pass_No_Match&uid=".$userName_1);
+        header("location:signup.php?error=Pass_No_Match&username=$userName_1&email=$email&phonenumber=$phoneNumber&age=$age");
         exit();
     }
 
     if(InvalidUsername($userName_1) !== false){
-        header("location:signup.php?error=Invalid username");
+        header("location:signup.php?error=Invalid username&email=$email&phonenumber=$phoneNumber&age=$age");
         exit();
     }
 

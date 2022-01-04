@@ -127,8 +127,7 @@ else if ($_GET["error"]=="sqlerror")
         else if($_GET["error"] =="no_error_signup_success"){
           echo "<script type='text/javascript'>
           swal({
-                 title: 'WOHOO!!',
-                 text: 'sign up success',
+                 title: 'sign up success !!',
                  icon: 'success'
              });
         </script>";

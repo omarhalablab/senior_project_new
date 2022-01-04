@@ -24,7 +24,7 @@
           <a class="nav-link" href="games.php">Games</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="orders.php">Orders</a>
+          <a class="nav-link" href="admin_order_tables.php">Orders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>

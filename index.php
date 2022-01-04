@@ -127,13 +127,14 @@ $pageName = 'Home Page';
                         // if(isset($_SESSION['name'])){
                         //   echo $_SESSION['name'];
                         // }
+                      //  echo " <a class='btn btn-primary' onclick='function_addToCart_noAccess(this)' ><i class='fas fa-cart-plus'></i> Add to cart</a>";
                                     ?></h1>
                        
 
                         <!-- <a id="<?php echo $row['id']; ?>" class="btn btn-primary" onclick="function_addToCart(<?php echo $row['id']; ?>,this)" ><i class="fas fa-cart-plus"></i> Add to cart</a> -->
                       <?php if(!isset($_SESSION['name'])){
-                        echo"<a class='btn btn-primary' onclick='function_addToCart_noAccess(this)' ><i class='fas fa-cart-plus'></i> Add to cart</a>";
-                      }else{echo"<a class='btn btn-primary' onclick='function_addToCart(".$id.",this)' ><i class='fas fa-cart-plus'></i> Add to cart</a>";
+                        echo"<div class='d-flex justify-content-between'><a class='btn btn-primary' onclick='function_addToCart_noAccess(this)' ><i class='fas fa-cart-plus'></i> Add to cart</a>   </div>";
+                      }else{echo"<div class='d-flex justify-content-between'><div><a class='btn btn-primary' onclick='function_addToCart(".$id.",this)' ><i class='fas fa-cart-plus'></i> Add to cart</a> </div><div>  <a class='btn btn-primary' onclick='viewReviews(".$id.",this)' ><i class='fas fa-eye'></i> View Reviews</a></div></div>" ;
                       
                       
                       }
@@ -181,7 +182,12 @@ if ($_GET["error"]=="no_error_login_success")
 
 <script>
 
+function viewReviews(id){
 
+  //alert(id);
+  window.location = "reviews.php?gameId="+id;
+
+}
 
   function logout(){
 
